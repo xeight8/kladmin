@@ -3,7 +3,8 @@
 Route::group([
 		'prefix' => 'kl_admin',
 		'namespace' => 'Xeight8\Kladmin\Http\Controllers',
-		'as' => 'kladmin'
+		'as' => 'kladmin',
+		'middleware' => 'web'
 	], function() {
 
 	// authentication
@@ -13,6 +14,7 @@ Route::group([
 		], function() {
 
 		Route::get('/login', 'AuthController@login')->name('.login');
+		Route::post('/login', 'AuthController@authenticate')->name('.authenticate');
 
 	});
 	
