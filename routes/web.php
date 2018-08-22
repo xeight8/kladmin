@@ -1,11 +1,10 @@
 <?php
 
 Route::group([
-		'prefix' => 'kl_admin'
+		'prefix' => 'kl_admin',
+		'namespace' => 'Xeight8\Kladmin\Http\Controllers'
 	], function() {
 
-		Route::get('/', function() {
-			return 'Sample admin page';
-		});
+		Route::get('/', 'DashboardController@show');
 
 });
