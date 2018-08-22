@@ -1,0 +1,14 @@
+{
+    "name": "xeight8/kladmin",
+    "description": "Admin panel for Kloner projects",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Elton Jeff Bulotano",
+            "email": "elton.jeff.bulotano@copypaste.ph"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
