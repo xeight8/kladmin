@@ -2,9 +2,20 @@
 
 Route::group([
 		'prefix' => 'kl_admin',
-		'namespace' => 'Xeight8\Kladmin\Http\Controllers'
+		'namespace' => 'Xeight8\Kladmin\Http\Controllers',
+		'as' => 'kladmin'
 	], function() {
 
-		Route::get('/', 'DashboardController@show');
+	// authentication
+	Route::group([
+			'namespace' => 'Auth',
+			'as' => '.auth'
+		], function() {
+
+		Route::get('/login', 'AuthController@login')->name('.login');
+
+	});
+	
+	Route::get('/', 'DashboardController@show');
 
 });
