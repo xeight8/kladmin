@@ -9,7 +9,7 @@
             "email": "elton.jeff.bulotano@copypaste.ph"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {
         "php": ">=7.0.0",
         "laravel/framework": "5.5.*",
@@ -19,13 +19,6 @@
     "autoload-dev": {
         "psr-4": {
             "Xeight8\\Kladmin\\": "/src"
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Xeight8\\Kladmin\\KladminServiceProvider"
-            ]
         }
     }
 }
