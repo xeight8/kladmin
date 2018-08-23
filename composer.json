@@ -9,7 +9,7 @@
             "email": "elton.jeff.bulotano@copypaste.ph"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
         "php": ">=7.0.0",
         "laravel/framework": "5.5.*",
