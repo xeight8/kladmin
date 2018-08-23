@@ -20,5 +20,5 @@
         "psr-4": {
             "Xeight8\\Kladmin\\": "/src"
         }
-    },
+    }
 }
