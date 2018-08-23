@@ -16,9 +16,16 @@
         "laravelcollective/html": "^5.4.0",
         "cartalyst/sentinel": "2.0.*"
     },
-    "autoload-dev": {
+    "autoload": {
         "psr-4": {
-            "Xeight8\\Kladmin\\": "/src"
+            "Xeight8\\Kladmin\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Xeight8\\Kladmin\\KladminServiceProvider"
+            ]
         }
     }
 }
