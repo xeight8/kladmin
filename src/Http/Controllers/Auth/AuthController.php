@@ -8,6 +8,8 @@ use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
 
 class AuthController extends Controller
 {
+    protected $errors = [];
+
     public function login()
     {
     	return view('kladmin::auth.login');
@@ -15,6 +17,21 @@ class AuthController extends Controller
 
     public function authenticate(Request $request)
     {
-    	return 'welcome ' . $request->email;
+    	$credentials = [
+    		'email' => $request->email,
+    		'password' => $request->password
+    	];
+
+        if (Sentinel::authenticate($credentials)) {
+
+            return redirect()->intended(route('kladmin'));
+
+        } else {
+
+            $this->errors[] = 'Invalid email or password.';
+
+            return redirect()->route('kladmin.auth.login')->withErrors($this->errors);
+
+        }
     }
 }

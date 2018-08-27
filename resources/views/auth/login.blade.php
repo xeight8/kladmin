@@ -1,8 +1,7 @@
-<html>
-<head>
-	<title>Login page</title>
-</head>
-<body>
+@extends('kladmin::master')
+@section('title', 'Login')
+
+@section('body')
 	{!! Form::open(['method' => 'POST', 'route' => 'kladmin.auth.authenticate', 'class' => 'form-horizontal']) !!}
 	
 	    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -23,5 +22,4 @@
 	    </div>
 	
 	{!! Form::close() !!}
-</body>
-</html>
+@endsection
