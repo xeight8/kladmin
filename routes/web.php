@@ -10,14 +10,37 @@ Route::group([
 	// authentication
 	Route::group([
 			'namespace' => 'Auth',
-			'as' => '.auth'
+			'as' => '.auth',
+			
 		], function() {
 
-		Route::get('/login', 'AuthController@login')->name('.login');
-		Route::post('/login', 'AuthController@authenticate')->name('.authenticate');
+		//log in
+		Route::group([
+				'middleware' => 'isGuest'
+			], function() {
+
+			Route::get('/login', 'AuthController@login')->name('.login');
+			Route::post('/login', 'AuthController@authenticate')->name('.authenticate');
+
+		});
+		
+		//log out
+		Route::group([
+				'middleware' => 'isLoggedIn'
+			], function() {
+
+			Route::get('/logout', 'AuthController@logout')->name('.auth.logout');
+
+		});
+	});
+
+	Route::group([
+			'middleware' => 'isLoggedIn'
+		], function() {
+
+		
+
+		Route::get('/', 'AdminController@dashboard');
 
 	});
-	
-	Route::get('/', 'DashboardController@show');
-
 });

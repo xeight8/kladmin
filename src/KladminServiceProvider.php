@@ -15,6 +15,12 @@ class KladminServiceProvider extends ServiceProvider
     {
         $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
         $this->loadViewsFrom(__DIR__ . '/../resources/views/', 'kladmin');
+
+        $router = $this->app['router'];
+
+        // register package middleware
+        $router->aliasMiddleware('isGuest', 'Xeight8\Kladmin\Http\Middleware\Auth\GuestMiddleware');
+        $router->aliasMiddleware('isLoggedIn', 'Xeight8\Kladmin\Http\Middleware\Auth\AuthenticatedMiddleware');
     }
 
     /**

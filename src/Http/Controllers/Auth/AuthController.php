@@ -2,14 +2,12 @@
 
 namespace Xeight8\Kladmin\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use Xeight8\Kladmin\Http\Controllers\KladminBaseController;
 use Illuminate\Http\Request;
 use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
 
-class AuthController extends Controller
+class AuthController extends KladminBaseController
 {
-    protected $errors = [];
-
     public function login()
     {
     	return view('kladmin::auth.login');
@@ -33,5 +31,18 @@ class AuthController extends Controller
             return redirect()->route('kladmin.auth.login')->withErrors($this->errors);
 
         }
+    }
+
+    public function logout()
+    {
+        $user = Sentinel::getUser();
+
+        if ($user !== null) {
+            $this->messages[] = 'You have sucessfully logged out.';
+        }
+        
+        Sentinel::logout($user);
+
+        return redirect()->route('kladmin.auth.login')->with('messages', $this->messages);
     }
 }
