@@ -11,7 +11,11 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/kladmin.pagebuilder.js', 'publishable/assets/js');
+mix.options({
+    	processCssUrls: false
+	})
+	.js('resources/assets/js/kladmin.pagebuilder.js', 'publishable/assets/js')
+	.sass('resources/assets/sass/kladmin.scss', 'publishable/assets/css');
 
 // Full API
 // mix.js(src, output);
