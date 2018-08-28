@@ -13,6 +13,8 @@ class KladminServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->loadHelpers();
+
         $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
         $this->loadViewsFrom(__DIR__ . '/../resources/views/', 'kladmin');
 
@@ -21,6 +23,11 @@ class KladminServiceProvider extends ServiceProvider
         // register package middleware
         $router->aliasMiddleware('isGuest', 'Xeight8\Kladmin\Http\Middleware\Auth\GuestMiddleware');
         $router->aliasMiddleware('isLoggedIn', 'Xeight8\Kladmin\Http\Middleware\Auth\AuthenticatedMiddleware');
+
+        if ($this->app->runningInConsole()) {
+            // publish assets
+            $this->registerPublishables();
+        }
     }
 
     /**
@@ -30,6 +37,37 @@ class KladminServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->mergeConfigFrom(__DIR__ . '/../publishable/config/kladmin.php', 'kladmin');
     }
+
+    /**
+     * Load application helpers.
+     *
+     * @return void
+     */
+    protected function loadHelpers()
+    {
+        foreach (glob(__DIR__.'/Helpers/*.php') as $filename) {
+            require_once $filename;
+        }
+    }
+
+    /**
+     * Register any application publishables
+     *
+     * @return void
+     */
+    protected function registerPublishables()
+    {
+        $publishables = [
+            'assets' => [
+                "/../resources/assets/" => public_path(config('kladmin.assets_path'))
+            ]
+        ];
+
+        foreach ($publishable as $group => $paths) {
+            $this->publishes($paths, $group);
+        }
+    }
+
 }

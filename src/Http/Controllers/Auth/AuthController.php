@@ -22,7 +22,7 @@ class AuthController extends KladminBaseController
 
         if (Sentinel::authenticate($credentials)) {
 
-            return redirect()->intended(route('kladmin'));
+            return redirect()->intended(route('kladmin.dashboard'));
 
         } else {
 

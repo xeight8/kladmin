@@ -2,6 +2,8 @@
 @section('title', 'Login')
 
 @section('body')
+	@include('kladmin::partials.errors-messages')
+
 	{!! Form::open(['method' => 'POST', 'route' => 'kladmin.auth.authenticate', 'class' => 'form-horizontal']) !!}
 	
 	    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -17,8 +19,7 @@
 	    </div>
 	
 	    <div class="btn-group pull-right">
-	        {!! Form::reset("Reset", ['class' => 'btn btn-warning']) !!}
-	        {!! Form::submit("Add", ['class' => 'btn btn-success']) !!}
+	        {!! Form::submit("Log in", ['class' => 'btn btn-success']) !!}
 	    </div>
 	
 	{!! Form::close() !!}

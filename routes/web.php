@@ -34,13 +34,22 @@ Route::group([
 		});
 	});
 
+	// admin
 	Route::group([
 			'middleware' => 'isLoggedIn'
-		], function() {
+		], function() {		
 
-		
+		Route::get('/', 'AdminController@dashboard')->name('.dashboard');
 
-		Route::get('/', 'AdminController@dashboard');
+		// page builder
+		Route::group([
+				'namespace' => 'PageBuilder',
+				'prefix' => 'pagebuilder',
+				'as' => '.pagebuilder'
+			], function() {
 
+			Route::get('/', 'PageBuilderController@create')->name('.create');
+
+		});
 	});
 });
