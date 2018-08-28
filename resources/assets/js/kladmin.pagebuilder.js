@@ -15,8 +15,10 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('main-menu', require('./components/pagebuilder/menus/MainMenu.vue'));
+Vue.component('pagebuilder-page', require('./components/pagebuilder/containers/Page.vue'));
+Vue.component('pagebuilder-section', require('./components/pagebuilder/containers/Section.vue'));
+Vue.component('pagebuilder-fullwidth-section', require('./components/pagebuilder/containers/FullwidthSection.vue'));
 
 const app = new Vue({
-    el: '#page-builder'
+    el: '#page-builder',
 });

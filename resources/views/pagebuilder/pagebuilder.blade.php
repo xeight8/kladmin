@@ -1,9 +1,13 @@
 @extends('kladmin::master')
 @section('title', 'KL Admin Page Builder')
 
+@push('styles')
+	<link rel="stylesheet" type="text/css" href="{{ kladmin_asset('css/pagebuilder.css') }}">
+@endpush
+
 @section('body')
 	<div id="page-builder">
-		<main-menu></main-menu>
+		<pagebuilder-page></pagebuilder-page>
 	</div>
 @endsection
 

@@ -15,7 +15,8 @@ mix.options({
     	processCssUrls: false
 	})
 	.js('resources/assets/js/kladmin.pagebuilder.js', 'publishable/assets/js')
-	.sass('resources/assets/sass/kladmin.scss', 'publishable/assets/css');
+	.sass('resources/assets/sass/kladmin.scss', 'publishable/assets/css')
+	.copy('resources/assets/css/', 'publishable/assets/css/', false);
 
 // Full API
 // mix.js(src, output);
