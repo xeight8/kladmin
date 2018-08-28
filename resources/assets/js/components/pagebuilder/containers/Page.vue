@@ -3,18 +3,14 @@
 
 		<div class="sections">
 			<component
-				v-for="section in sections" 
+				v-for="(section, index) in sections" 
 				v-bind:is="section.type"
-				v-bind:id="'section-'+section.index"
+				v-bind:id="'section-'+(index+1)"
 				>
 			</component>
 		</div>
 
-	    <div class="pagebuilder-page-toolbar fixed">
-	    	<a class="pagebuilder-add-section" v-on:click="addSection('pagebuilder-section')">Add section</a>
-	    	<a class="pagebuilder-add-fullwidth-section" v-on:click="addSection('pagebuilder-fullwidth-section')">Add fullwidth section</a>
-	        <a href="#">Save</a>
-	    </div>    
+		<pagebuilder-page-toolbar></pagebuilder-page-toolbar>
 	</div>
 </template>
 
@@ -24,21 +20,9 @@
     		return {
     			sections: []
        		}
-    	},
-    	methods: {
-    		addSection(sectionType) {
-    			let index = this.sections.length + 1;
-
-    			this.sections.push({index: index, type: sectionType});
-    		}
     	}
     }
 </script>
 
-<style type="text/css">
-.pagebuilder-page-toolbar {
-	bottom: 20px;
-	left: 50%;
-	transform: translate(-50%, 0);
-}
+<style scoped>
 </style>

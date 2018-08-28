@@ -1,3 +1,16 @@
+.pagebuilder-section {
+	padding: 80px 0;
+	position: relative;
+}
+.pagebuilder-section:hover {
+	outline: 1px solid orange;
+}
+.pagebuilder-row:hover {
+	outline: 1px solid blue;
+}
 .fixed {
 	position: fixed;
+}
+.absolute {
+	position: absolute;
 }
