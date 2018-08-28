@@ -2,7 +2,8 @@
 @section('title', 'KL Admin Page Builder')
 
 @section('body')
-	<div id="app">
+	<div id="page-builder">
+		<main-menu></main-menu>
 	</div>
 @endsection
 

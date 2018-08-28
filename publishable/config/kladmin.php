@@ -11,6 +11,6 @@ return [
     |
     */
 
-    'assets_path' => '/vendor/xeight8/kladmin/resources/assets'
+    'assets_path' => '/vendor/xeight8/kladmin/assets'
 
 ];

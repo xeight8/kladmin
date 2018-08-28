@@ -59,13 +59,18 @@ class KladminServiceProvider extends ServiceProvider
      */
     protected function registerPublishables()
     {
+        $publishablePath = dirname(__DIR__).'/publishable';
+
         $publishables = [
             'assets' => [
-                "/../resources/assets/" => public_path(config('kladmin.assets_path'))
+                $publishablePath . '/assets/' => public_path(config('kladmin.assets_path'))
+            ],
+            'config' => [
+                $publishablePath . '/config/' => config_path()
             ]
         ];
 
-        foreach ($publishable as $group => $paths) {
+        foreach ($publishables as $group => $paths) {
             $this->publishes($paths, $group);
         }
     }
