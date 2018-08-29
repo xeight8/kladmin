@@ -29,7 +29,7 @@ Route::group([
 				'middleware' => 'isLoggedIn'
 			], function() {
 
-			Route::get('/logout', 'AuthController@logout')->name('.auth.logout');
+			Route::get('/logout', 'AuthController@logout')->name('.logout');
 
 		});
 	});
@@ -49,6 +49,8 @@ Route::group([
 			], function() {
 
 			Route::get('/', 'PageBuilderController@create')->name('.create');
+			Route::post('/', 'PageBuilderController@store')->name('.store');
+			Route::get('/edit/{slug}', 'PageBuilderController@edit')->name('.edit');
 
 		});
 	});

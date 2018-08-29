@@ -4,6 +4,7 @@
 		<div class="sections">
 			<component
 				v-for="(section, index) in sections" 
+				v-bind:key="index+1"
 				v-bind:is="section.type"
 				v-bind:id="'section-'+(index+1)"
 				>

@@ -4,6 +4,8 @@ namespace Xeight8\Kladmin\Http\Controllers\PageBuilder;
 
 use Xeight8\Kladmin\Http\Controllers\KladminBaseController;
 use Illuminate\Http\Request;
+use Validator;
+use Xeight8\Kladmin\Models\PagebuilderPage;
 
 class PageBuilderController extends KladminBaseController
 {
@@ -24,7 +26,7 @@ class PageBuilderController extends KladminBaseController
      */
     public function create()
     {
-        return view('kladmin::pagebuilder.pagebuilder');
+        return view('kladmin::admin.pagebuilder.pagebuilder-create');
     }
 
     /**
@@ -35,7 +37,17 @@ class PageBuilderController extends KladminBaseController
      */
     public function store(Request $request)
     {
-        //
+        $page = new PagebuilderPage;
+
+        $validator = Validator::make($request->all(), $page->rules);
+
+        if ($validator->fails()) {
+            return redirect()->route('kladmin.pagebuilder.create')->withErrors($validator);
+        }
+
+        $page = PagebuilderPage::create($request->all());
+
+        return redirect()->route('kladmin.pagebuilder.edit', ['slug' => $page->slug]);
     }
 
     /**
@@ -55,9 +67,9 @@ class PageBuilderController extends KladminBaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        //
+        return view('kladmin::admin.pagebuilder.pagebuilder-edit');
     }
 
     /**

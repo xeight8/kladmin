@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>@yield('title', 'Kloner admin')</title>
+        <title>@yield('title', 'KL Admin')</title>
 
         <link rel="stylesheet" type="text/css" href="{{ kladmin_asset('css/kladmin.css')}} ">
         @stack('styles')
@@ -20,5 +20,6 @@
 
     </body>
 
+    <script type="text/javascript" src="{{ kladmin_asset('js/kladmin.js') }}"></script>
     @stack('scripts')
 </html>

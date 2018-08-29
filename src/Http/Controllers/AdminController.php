@@ -8,6 +8,6 @@ class AdminController extends KladminBaseController
 {
     public function dashboard()
     {
-    	return view('kladmin::master');
+    	return view('kladmin::admin.dashboard');
     }
 }

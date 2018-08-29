@@ -2,8 +2,8 @@
 	<section class="pagebuilder-section">
 		<div class="container-fluid">
 			<pagebuilder-row 
-				v-for="row in rows"
-				
+				v-for="(row, index) in rows"
+				v-bind:key="index+1"
 				>
 			</pagebuilder-row>
 		</div>
