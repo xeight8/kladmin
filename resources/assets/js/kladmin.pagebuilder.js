@@ -23,6 +23,9 @@ Vue.component('pagebuilder-row', require('./components/pagebuilder/containers/Ro
 Vue.component('pagebuilder-page-toolbar', require('./components/pagebuilder/toolbars/PageToolbar.vue'));
 Vue.component('pagebuilder-section-toolbar', require('./components/pagebuilder/toolbars/SectionToolbar.vue'));
 
+// settings
+Vue.component('pagebuilder-page-settings', require('./components/pagebuilder/settings/PageSettings.vue'))
+
 const app = new Vue({
     el: '#page-builder',
 });

@@ -1,5 +1,7 @@
 <template>
-	<div class="pagebuilder-page">
+	<div class="pagebuilder-page" v-bind:style="styles">
+
+		<pagebuilder-page-toolbar></pagebuilder-page-toolbar>
 
 		<div class="sections">
 			<component
@@ -11,7 +13,13 @@
 			</component>
 		</div>
 
-		<pagebuilder-page-toolbar></pagebuilder-page-toolbar>
+		<div class="pagebuilder-settings-container">
+			<pagebuilder-page-settings 
+				v-show="visibleSettings == 'page'"
+				v-on:pageStylesChanged="applyPageStyles"
+				>
+			</pagebuilder-page-settings>
+		</div>
 	</div>
 </template>
 
@@ -19,8 +27,15 @@
     export default {
     	data: function() {
     		return {
-    			sections: []
+    			sections: [],
+    			styles: [],
+    			visibleSettings: false
        		}
+    	},
+    	methods: {
+    		applyPageStyles(styles) {
+    			this.styles = styles;
+      		}
     	}
     }
 </script>
