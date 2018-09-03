@@ -7,6 +7,9 @@ window.KladminHelpers = {
 	slugify: function(text)
 	{
 	  return text.toString().toLowerCase()
+	  	.replace('å', 'a')
+	  	.replace('ø', 'o')
+	  	.replace('æ', 'ae')
 	    .replace(/\s+/g, '-')           // Replace spaces with -
 	    .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
 	    .replace(/\-\-+/g, '-')         // Replace multiple - with single -
