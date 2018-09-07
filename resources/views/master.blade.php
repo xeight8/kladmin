@@ -9,6 +9,7 @@
         <title>@yield('title', 'KL Admin')</title>
 
         <link rel="stylesheet" type="text/css" href="{{ kladmin_asset('css/kladmin.css')}} ">
+        <link rel="stylesheet" type="text/css" href="{{ kladmin_asset('css/custom.kladmin.css')}} ">
         @stack('styles')
 
         <!-- Fonts -->

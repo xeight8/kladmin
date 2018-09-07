@@ -16,7 +16,7 @@ class PageBuilderController extends KladminBaseController
      */
     public function index()
     {
-        //
+        return view('kladmin::pagebuilder.pagebuilder');
     }
 
     /**
@@ -69,7 +69,7 @@ class PageBuilderController extends KladminBaseController
      */
     public function edit($slug)
     {
-        return view('kladmin::admin.pagebuilder.pagebuilder-edit');
+        return view('kladmin::admin.pagebuilder.pagebuilder-edit', compact('slug'));
     }
 
     /**

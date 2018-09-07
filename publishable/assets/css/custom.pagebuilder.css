@@ -19,9 +19,3 @@
 .pagebuilder-row:hover {
 	outline: 1px solid blue;
 }
-.fixed {
-	position: fixed;
-}
-.absolute {
-	position: absolute;
-}

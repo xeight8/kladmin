@@ -48,9 +48,10 @@ Route::group([
 				'as' => '.pagebuilder'
 			], function() {
 
-			Route::get('/', 'PageBuilderController@create')->name('.create');
-			Route::post('/', 'PageBuilderController@store')->name('.store');
-			Route::get('/edit/{slug}', 'PageBuilderController@edit')->name('.edit');
+			Route::get('/', 'PageBuilderController@index')->name('.index');
+			//Route::get('/', 'PageBuilderController@create')->name('.create');
+			//Route::post('/', 'PageBuilderController@store')->name('.store');
+			//Route::get('/edit/{slug}', 'PageBuilderController@edit')->name('.edit');
 
 		});
 	});

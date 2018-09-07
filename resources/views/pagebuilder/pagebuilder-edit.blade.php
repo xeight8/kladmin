@@ -5,12 +5,12 @@
 	<link rel="stylesheet" type="text/css" href="{{ kladmin_asset('css/pagebuilder.css') }}">
 @endpush
 
-@section('body')
-	<div id="page-builder">
-		<pagebuilder-page></pagebuilder-page>
+@section('body'){{ $slug }}
+	<div id="pagebuilder">
+		<pagebuilder v-bind:slug="{{ $slug }}"></pagebuilder>
 	</div>
 @endsection
 
 @push('scripts')
-	<script type="text/javascript" src="{{ kladmin_asset('js/kladmin.pagebuilder.js') }}"></script>
+	<script type="text/javascript" src="{{ kladmin_asset('js/pagebuilder/pagebuilder.js') }}"></script>
 @endpush
