@@ -11,6 +11,8 @@ return [
     |
     */
 
-    'assets_path' => '/vendor/xeight8/kladmin/assets'
+    'assets_path' => '/vendor/xeight8/kladmin/assets',
+    'base_url' => 'kl_admin',
+    'api_url' => 'kl_admin/api/pagebuilder'
 
 ];

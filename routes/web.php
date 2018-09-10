@@ -1,7 +1,7 @@
 <?php
 
 Route::group([
-		'prefix' => 'kl_admin',
+		'prefix' => config('kladmin.base_url'),
 		'namespace' => 'Xeight8\Kladmin\Http\Controllers',
 		'as' => 'kladmin',
 		'middleware' => 'web'

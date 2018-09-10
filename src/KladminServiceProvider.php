@@ -39,6 +39,22 @@ class KladminServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(__DIR__ . '/../publishable/config/kladmin.php', 'kladmin');
+
+        //change lighthouse graphQL config
+        $route_name = config('kladmin.api_url');
+        $namespaces = [
+            'models' => 'Xeight8\Kladmin\Models',
+            'mutations' => 'Xeight8\Kladmin\Http\GraphQL\Mutations',
+            'queries' => 'Xeight8\Kladmin\Http\GraphQL\Queries',
+            'scalars' => 'Xeight8\Kladmin\Http\GraphQL\Scalars'
+        ];
+        $schema = [
+            'register' => __DIR__ . '/../routes/graphql/schema.graphql'
+        ];
+
+        \Config::set('lighthouse.route_name', $route_name);
+        \Config::set('lighthouse.namespaces', $namespaces);
+        \Config::set('lighthouse.schema', $schema);
     }
 
     /**

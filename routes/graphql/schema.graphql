@@ -1,0 +1,9 @@
+type Page {
+	id: ID!
+	title: String!
+	slug: String!
+}
+
+type Query {
+	pages: [Page!]! @field(resolver: "Xeight8\\Kladmin\\Http\\GraphQL\\Query@pages")
+}
