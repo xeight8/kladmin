@@ -10,4 +10,9 @@ class Query
 	{
 		return PagebuilderPage::all();
 	}
+
+	public function page($root, array $args, $context, $info)
+	{
+		return PagebuilderPage::where('slug', $args['slug'])->first();
+	}
 }

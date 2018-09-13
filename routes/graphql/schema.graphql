@@ -6,4 +6,5 @@ type Page {
 
 type Query {
 	pages: [Page!]! @field(resolver: "Xeight8\\Kladmin\\Http\\GraphQL\\Query@pages")
+	page(slug: String!): Page @field(resolver: "Xeight8\\Kladmin\\Http\\GraphQL\\Query@page")
 }
